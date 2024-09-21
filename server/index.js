@@ -1,3 +1,4 @@
+// server/index.js
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
@@ -10,11 +11,11 @@ app.use(express.json());
 // Import routes
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
-const orderRoutes = require('./routes/orderRoutes');
+const cartRoutes = require('./routes/cartRoutes');  // Import cart routes
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/orders', orderRoutes);
+app.use('/api/cart', cartRoutes);  // Use cart routes
 
 // Connect to the database and start the server
 const PORT = process.env.PORT || 5001;
